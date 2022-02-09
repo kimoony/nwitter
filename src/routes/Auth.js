@@ -77,10 +77,10 @@ function Auth() {
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value={newAccount ? "Create Account" : "Sign In"} />
+        <input type="submit" value={newAccount ? "회원가입" : "로그인"} />
         {error}
       </form>
-      <span onClick={toggleAccount}>{newAccount ? "Sign In" : "Create Account"}</span>
+      <span onClick={toggleAccount}>{newAccount ? "로그인" : "회원가입"}</span>
       <div>
         <button name="google" onClick={onSocialClicik}>Google 로그인</button>
         <button name="github" onClick={onSocialClicik}>Git-Hub 로그인</button>

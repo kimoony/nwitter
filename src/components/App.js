@@ -7,10 +7,13 @@ import { authService } from "fBase";
 function App() {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setIsLoggedIn(true);
+        setUserObj(user)
       } else {
         setIsLoggedIn(false);
       }
@@ -20,7 +23,8 @@ function App() {
 
   return (
     <>
-      {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "초기화중..."}
+      {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "초기화중..."}
+      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </>
   );
 }

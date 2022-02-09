@@ -1,13 +1,13 @@
 import React from 'react';
 import { authService } from 'fBase';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 function Profile() {
-  const navigate = useNavigate();
+  const history = useHistory();
   const onLogOutClick = () => {
     authService.signOut();
-    navigate("/")
+    history.push("/")
   }
 
   return (
