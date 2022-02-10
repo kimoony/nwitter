@@ -19,9 +19,21 @@ function App() {
     })
   }, [])
 
+  const refreshUser = () => {
+    setUserObj(authService.currentUser)
+  }
+
   return (
     <>
-      {init ? <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} /> : "초기화중..."}
+      {init ? (
+        <AppRouter
+          isLoggedIn={Boolean(userObj)}
+          userObj={userObj}
+          refreshUser={refreshUser}
+        />
+      ) : (
+        "초기화중..."
+      )}
     </>
   );
 }
