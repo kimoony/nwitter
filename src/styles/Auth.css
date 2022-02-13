@@ -1,0 +1,26 @@
+.social_login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.btn {
+  width: 150px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #fff;
+  border: 0;
+  margin-top: 10px;
+}
+
+.google-btn {
+  padding: 5px 10px;
+  background-color: #F84949;
+}
+
+.github-btn {
+  padding: 5px 10px;
+  background-color: #1C2433;
+}

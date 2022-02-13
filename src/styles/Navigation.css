@@ -1,0 +1,15 @@
+.nav-container {
+  width: auto;
+  padding: 10px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding-left: 0px;
+}
+
+.nav-list li:first-child {
+  margin-right: 20px;
+}

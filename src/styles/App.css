@@ -1,0 +1,21 @@
+@import 'Auth.css';
+@import 'AuthForm.css';
+@import 'Home.css';
+@import 'Navigation.css';
+@import 'Nweet.css';
+@import 'NweetFactory.css';
+@import 'Profile.css';
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 97vh;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
