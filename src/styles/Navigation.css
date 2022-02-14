@@ -1,5 +1,5 @@
 .nav-container {
-  width: auto;
+  width: 30vw;
   padding: 10px;
 }
 
@@ -12,4 +12,29 @@
 
 .nav-list li:first-child {
   margin-right: 20px;
+}
+
+.nav-list li:last-child {
+  text-align: center;
+}
+
+.nickname {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.nav-icon1,
+.nav-icon2 {
+  color: #fff;
+}
+
+.nav-icon1:hover {
+  color: #4FA4F7;
+}
+
+.nav-icon2:hover {
+  color: #f7d54f;
 }

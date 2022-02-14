@@ -1,5 +1,11 @@
 import { dbService, storageService } from 'fBase';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import 'styles/Nweet.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+
+
+
 
 const Nweet = ({ nweetObj, isOwner }) => {
 
@@ -32,35 +38,47 @@ const Nweet = ({ nweetObj, isOwner }) => {
   }
 
   return (
-    <div>
-      {
-        editing ? (
-          <>
-            <form onSubmit={onSubmit}>
-              <input
-                type="text"
-                placeholder="Nweet 수정하기"
-                value={newNweet}
-                required
-                onChange={onChange} />
-              <input type="submit" value="Update Nweet" />
-            </form>
-            <button onClick={toggleEditing}>취소</button>
-          </>
-        ) : (
-          <>
-            <h4>{nweetObj.text}</h4>
-            {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} width="100px" height="100px" />}
-            {isOwner && (
-              <>
-                <button onClick={onDeleteClick}>삭제</button>
-                <button onClick={toggleEditing}>수정</button>
-              </>
-            )}
-          </>
-        )
-      }
-    </div>
+    <>
+      {nweetObj.attachmentUrl && <img className="nweet-img" src={nweetObj.attachmentUrl} width="350px" height="350px" />}
+      <div className="nweet-container">
+        {
+          editing ? (
+            <>
+              <form id="nweet-form" onSubmit={onSubmit}>
+                <div>
+                  <input
+                    className="nweet-input"
+                    type="text"
+                    placeholder="Nweet 수정하기"
+                    value={newNweet}
+                    required
+                    onChange={onChange} />
+                </div>
+                <input className="btn nweet-update-btn" type="submit" value="Update Nweet" />
+              </form>
+              <button className="btn nweet-cansle-btn" onClick={toggleEditing}>취소</button>
+            </>
+          ) : (
+            <div className="nweet-content">
+              <div className="nweet-text">
+                <h4>{nweetObj.text}</h4>
+              </div>
+              {isOwner && (
+                <div className='btn-box'>
+                  <button className="btn edit-btn" onClick={toggleEditing}>
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </button>
+                  <button className="btn del-btn" onClick={onDeleteClick}>
+                    <FontAwesomeIcon icon={faTrashCan} />
+                  </button>
+                </div>
+              )}
+              {/* <span>{new Date().toLocaleString()}</span> */}
+            </div>
+          )
+        }
+      </div>
+    </>
   );
 }
 

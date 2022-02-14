@@ -1,8 +1,8 @@
-.nweet-container {
-  border: 1px solid blue;
+.home-container {
+  /* border: 1px solid blue; */
   padding: 20px;
 }
 
-.nweet-content {
-  border: 1px solid green;
+.home-content {
+  /* border: 1px solid green; */
 }

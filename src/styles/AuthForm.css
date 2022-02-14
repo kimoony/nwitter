@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50vw;
 }
 
 .auth_form-input {
@@ -21,10 +21,15 @@
   padding: 10px;
   background-color:rgba(0, 0, 0, 0);
   font-size: 16px;
+  color: #fff;
+}
+
+.err-message {
+  color: #F84949;
 }
 
 .auth_form-btn {
-  width: 100%;
+  width: 50vw;
   border: 0;
   border-radius: 10px;
   padding: 10px;
@@ -35,6 +40,10 @@
   cursor: pointer;
 }
 
+.auth_form-btn:hover {
+  background-color: #4FA4F7;
+}
+
 .toggle-btn {
   display: block;
   margin-top: 20px;
@@ -43,4 +52,10 @@
   font-size: 14px;
   cursor: pointer;
   width: fit-content;
+  color: white;
+}
+
+.toggle-btn:hover {
+  color: #5fa1e3;
+  text-decoration: underline;
 }

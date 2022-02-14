@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { authService, dbService } from 'fBase';
 import { useHistory } from 'react-router-dom';
+import 'styles/Profile.css';
 
 
 function Profile({ userObj, refreshUser }) {
@@ -33,8 +34,9 @@ function Profile({ userObj, refreshUser }) {
     if (userObj.displayName !== newDisplayName) {
       await userObj.updateProfile({
         displayName: newDisplayName,
-      })
-    } refreshUser();
+      });
+      refreshUser();
+    }
   }
 
   useEffect(() => {
@@ -42,16 +44,17 @@ function Profile({ userObj, refreshUser }) {
   }, []);
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} id="profile-form">
         <input
+          className="profile-input"
           type="text"
           placeholder="Display Name"
           onChange={onChange}
           value={newDisplayName}
         />
-        <input type="submit" value="Update Profile" />
+        <input className="btn update-btn" type="submit" value="Update Profile" />
       </form>
-      <button onClick={onLogOutClick}>로그아웃</button>
+      <button className="btn logout-btn" onClick={onLogOutClick}>로그아웃</button>
     </>
   )
 }

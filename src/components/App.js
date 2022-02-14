@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import AppRouter from 'components/Router';
 import { authService } from "fBase";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import 'styles/App.css';
 
 
 function App() {
@@ -11,7 +13,11 @@ function App() {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
-        setUserObj(user);
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) => user.updateProfile(args),
+        });
       } else {
         setUserObj(null);
       }
@@ -20,7 +26,12 @@ function App() {
   }, [])
 
   const refreshUser = () => {
-    setUserObj(authService.currentUser)
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    });
   }
 
   return (
@@ -32,7 +43,10 @@ function App() {
           refreshUser={refreshUser}
         />
       ) : (
-        "초기화중..."
+        <div className='loding'>
+          < FontAwesomeIcon icon={faSpinner} pulse size="4x" className="loding-icon" />
+          <h3 className="loding-title">로딩 중...</h3>
+        </div>
       )}
     </>
   );

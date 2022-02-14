@@ -1,0 +1,108 @@
+.nweet-container {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #4f4f4f;
+  color: #fff;
+}
+
+.nweet-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nweet-img {
+  width: 30vw;
+  border-radius: 10px;
+  margin-bottom: -10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.nweet-text {
+  width: 30vw;
+  padding: 0px 10px;
+  text-align:start;
+  display: flex;
+  justify-content: flex-start;
+  white-space: pre-wrap;
+}
+
+#nweet-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+}
+
+.nweet-input {
+  width: 25vw;
+  padding: 0px 10px;
+  background-color: #4f4f4f;
+  border: 0;
+  border-bottom: 2px solid #4FA4F7;
+  font-size: 18px;
+  color: #fff;margin-bottom: 10px;
+}
+
+
+
+.nweet-update-btn {
+  width: 25vw;
+  background-color: #2679F2;
+}
+
+.nweet-update-btn:hover{
+  width: 25vw;
+  background-color: #4FA4F7;
+}
+
+.nweet-cansle-btn {
+  width: 25vw;
+  background-color: #c40505;
+}
+
+.nweet-cansle-btn:hover {
+  background-color: #f50e0e;
+}
+
+.btn-box {
+  width: 30vw;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0px 10px;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+}
+
+.del-btn {
+  width: auto;
+  background-color: #c40505;
+}
+
+.del-btn:hover {
+  background-color: #f50e0e;
+}
+
+.edit-btn {
+  width: auto;
+margin-right: 5px;
+  background-color: slategray;
+}
+
+.edit-btn:hover {
+  background-color: rgb(149, 169, 189);
+}

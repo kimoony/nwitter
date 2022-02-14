@@ -1,48 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { authService, firebaseInstance } from 'fBase';
+import AuthForm from 'components/AuthForm';
+import 'styles/Auth.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 
+library.add(fab)
 
 function Auth() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
-  const [error, setError] = useState("");
 
-  const onChange = (e) => {
-    const {
-      target: { name, value }
-    } = e;
-    // console.log(name, value);
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
-  }
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      let data;
-      if (newAccount) {
-        data = await authService.createUserWithEmailAndPassword(
-          email,
-          password
-        );
-      } else {
-        data = await authService.signInWithEmailAndPassword(
-          email,
-          password
-        );
-      }
-      console.log(data);
-    } catch (error) {
-      console.error(error.message);
-      setError(error.message);
-    }
-  };
-
-  const toggleAccount = () => setNewAccount(prev => !prev);
   const onSocialClicik = async (e) => {
     const {
       target: { name },
@@ -53,37 +20,20 @@ function Auth() {
     } else if (name === "github") {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
-    const data = await authService.signInWithPopup(provider);
-    console.log(data);
+    await authService.signInWithPopup(provider);
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          minLength={8}
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <input type="submit" value={newAccount ? "회원가입" : "로그인"} />
-        {error}
-      </form>
-      <span onClick={toggleAccount}>{newAccount ? "로그인" : "회원가입"}</span>
-      <div>
-        <button name="google" onClick={onSocialClicik}>Google 로그인</button>
-        <button name="github" onClick={onSocialClicik}>Git-Hub 로그인</button>
+    <div className="social_login-container">
+      <AuthForm />
+      <hr />
+      <div className='social_login-box'>
+        <button className='btn google-btn' name="google" onClick={onSocialClicik}>
+          <FontAwesomeIcon icon={["fab", "google"]} /> Google 로그인
+        </button>
+        <button className='btn github-btn' name="github" onClick={onSocialClicik}>
+          <FontAwesomeIcon icon={["fab", "github"]} /> GitHub 로그인
+        </button>
       </div>
     </div>
   )
